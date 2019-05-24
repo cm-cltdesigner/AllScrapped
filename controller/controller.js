@@ -12,7 +12,7 @@ router.get("/", function(req, res) {
 });
 
 router.get("/scrape", function(req, res) {
-  request("https://www.reddit.com", function(error, response, html) {
+  request("https://news.artnet.com", function(error, response, html) {
     var $ = cheerio.load(html);
     var titlesArray = [];
 
@@ -76,6 +76,7 @@ router.get("/articles-json", function(req, res) {
   });
 });
 
+// user may remove
 router.get("/clearAll", function(req, res) {
   Article.remove({}, function(err, doc) {
     if (err) {
@@ -118,6 +119,8 @@ router.get("/readArticle/:id", function(req, res) {
       }
     });
 });
+
+// user comments
 router.post("/comment/:id", function(req, res) {
   var user = req.body.name;
   var content = req.body.comment;
