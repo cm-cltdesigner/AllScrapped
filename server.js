@@ -15,6 +15,7 @@ app.use(
 );
 
 app.use(express.static(process.cwd() + "/public"));
+
 //Require set up handlebars
 var exphbs = require("express-handlebars");
 app.engine(
@@ -26,9 +27,9 @@ app.engine(
 app.set("view engine", "handlebars");
 
 //connecting to MongoDB
-//mongoose.connect("mongodb://localhost/designscrape");
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/designscrape";
+//mongoose.connect("mongodb://localhost/AllScrapped");
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/AllScrapped";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 var db = mongoose.connection;
@@ -39,6 +40,7 @@ db.once("open", function() {
 
 var routes = require("./controller/controller.js");
 app.use("/", routes);
+
 //Create localhost port
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
