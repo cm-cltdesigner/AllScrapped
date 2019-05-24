@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
-
 var request = require("request");
 var cheerio = require("cheerio");
 
@@ -13,7 +12,7 @@ router.get("/", function(req, res) {
 });
 
 router.get("/scrape", function(req, res) {
-  request("https://www.reddit.com/r/design", function(error, response, html) {
+  request("https://www.reddit.com", function(error, response, html) {
     var $ = cheerio.load(html);
     var titlesArray = [];
 
@@ -48,7 +47,7 @@ router.get("/scrape", function(req, res) {
           console.log("Article already exists.");
         }
       } else {
-        console.log("Not saved to DB, missing data");
+        console.log("Not saved to database, missing data");
       }
     });
     res.redirect("/");
