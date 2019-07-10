@@ -2,12 +2,11 @@
 In this repo a web app was created that lets users view and leave comments on the latest design news.
 
 # Setup
-Install npm packages:<br>
-express<br>
-express-handlebars<br>
-mongoose<br>
-cheerio<br>
-axios<br>
+Express-handlebars<br>
+Mongoose<br>
+Installed NPM Packages:<br>
+Cheerio<br>
+Axios<br>
 
 ## Live Demo
 Here is link to demo of working app: "https://all-scrapped-app.herokuapp.com"
